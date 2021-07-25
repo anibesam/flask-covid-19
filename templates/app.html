@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RESULT</title>
+    <meta name="discription" content="The system is using decision
+         tree algorithm and convolutional nueral network (CNN). 
+         The web app that can receive data from 
+         patients and run some decision to tell if the person is infected
+          or not. Then give guidelines to help the infected or 
+          prevent the uninfected. " />
+    <!-- TAILWIND CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/tailwind.min.css') }}" />
+    <style>
+        .bg {
+            background: url('static/images/334590.jpg');
+            background-size: cover !important;
+            background-position: center center;
+            background-repeat: no-repeat;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            display: block !important;
+            position: static !important;
+            pointer-events: visiblePainted !important;
+            /* SVG only */
+        }
+
+        .bg img {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="bg bg-gray-100 dark:bg-gray-800 rounded-2xl h-screen overflow-hidden relative">
+        <div class="flex items-start justify-between">
+            <div class="h-screen hidden lg:block my-4 ml-4 shadow-lg relative w-80">
+                <div class="bg-white h-full rounded-2xl dark:bg-gray-700">
+                    <div class="flex items-center justify-center pt-6">
+                        <img src="static/images/wiseplus.svg" width="50px" height="50px" />
+                    </div>
+                    <nav class="mt-6">
+                        <div>
+                            <a class="w-full font-thin uppercase text-blue-500 flex items-center p-4 my-2 transition-colors duration-200 justify-start bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800 border-r-4 border-blue-500"
+                                href="/">
+                                <span class="text-left">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 2048 1792"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1070 1178l306-564h-654l-306 564h654zm722-282q0 182-71 348t-191 286-286 191-348 71-348-71-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="mx-4 text-sm font-normal">
+                                    Return back Home
+                                </span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
+                <header class="w-full shadow-lg bg-white dark:bg-gray-700 items-center h-16 rounded-2xl z-40">
+                    <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
+                        <div class="relative items-center pl-1 flex w-full lg:max-w-68 sm:pr-2 sm:ml-0">
+                            <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
+                                <div class="relative flex items-center w-full lg:w-64 h-full group">
+
+                                </div>
+                                <strong style="font-style: bold; font-size: 30px;">Test Report</strong>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- MAIN BODY-->
+
+                <div
+                    class="md:p-8 p-6 bg-white shadow-xl rounded-lg flex justify-between dark:bg-gray-800 md:items-center md:flex-row flex-col gap-12">
+                    <div>
+                        <span class="text-bold text-gray-700 dark:text-gray-400 block">
+                            Result
+                        </span>
+                        <span id="res" name="res" class="text-green-500 text-4xl
+         md:text-5xl mt-2 font-black block">
+                            Negative
+                        </span>
+                    </div>
+                    <div class="self-end">
+                        <div class="md:text-right text-left md:block">
+                            <p class="text-xl md:mb-2 mb-0 dark:text-gray-100 flex items-center increase">
+                                <svg width="20" height="20" fill="currentColor" class="h-6 w-6 text-red-500 mr-2"
+                                    viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                                    </path>
+                                </svg>
+                                91%
+                            </p>
+                        </div>
+                        <p
+                            class="text-lg text-gray-600 md:text-right text-left dark:text-gray-400 md:block inline-block md:mb-0">
+                            Cross validation accuracy of model
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- SECOND LINE FOR PRESCRIPTION-->
+                <div
+                    class="md:p-8 p-6 bg-white shadow-xl rounded-lg flex justify-between dark:bg-gray-800 md:items-center md:flex-row flex-col gap-12">
+                    <div>
+                        <strong class="text-bold text-gray-700 dark:text-gray-400 block">
+                            <i class="fa fa-home"></i> PRESCRIPTION
+                        </strong>
+                        <p>
+                            This test is generated by a Convolutional Neural Network Model
+                            which was trained by real images of Corona Positive and Negative samples.
+                            According to research there are some positive cases which do not show symptoms in chest
+                            X-Rays. Hence it is recomended to consult a doctor before any treatment.
+                        </p>
+                    </div>
+                </div>
+
+    </main>
+
+    <!-- Jquery JS-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="/vendor/select2/select2.min.js"></script>
+</body>
+
+<footer id="main-footer">Project by Joshua Kigbu <br /></footer>
+</body>
+
+</html>
